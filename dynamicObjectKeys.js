@@ -13,11 +13,22 @@ console.log(items["featured-items"]);
 console.log(data["name"]);
 
 let appState = "loading";
-appState = 'error';
+appState = "error";
 
 const app = {
   [appState]: true,
-}; 
-app['name'] = 'test';
+};
+app["name"] = "test";
 
-console.log(app);
+const state = {
+  loading: true,
+  name: "",
+  job: "",
+};
+
+const updateState = (key, value) => (state[key] = value);
+
+updateState("name", "marwan");
+updateState("job", "dev");
+updateState("loading", false);
+console.log(state);
