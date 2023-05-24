@@ -31,4 +31,68 @@ const totalSalary = people.reduce((total, person) => {
   return total;
 }, 0);
 
-console.log(totalSalary);
+// console.log(totalSalary);
+
+const carts = [
+  {
+    name: "phone",
+    qty: 10,
+    price: 100,
+  },
+  {
+    name: "earpiece",
+    qty: 15,
+    price: 15,
+  },
+  {
+    name: "charger",
+    qty: 3,
+    price: 10,
+  },
+  {
+    name: "laptop",
+    qty: 10,
+    price: 340,
+  },
+];
+
+const { totalNumber, totalPrice } = carts.reduce(
+  (total, cart) => {
+    const { qty, price } = cart;
+    total.totalNumber += qty;
+    total.totalPrice += qty * price;
+
+    return total;
+  },
+  {
+    totalNumber: 0,
+    totalPrice: 0,
+  }
+);
+
+// console.log(totalNumber, totalPrice);
+
+const url = "https://api.github.com/users/marwanoladele/repos";
+
+const fetchKey = async () => {
+  const response = await fetch(url);
+  const data = await response.json();
+  const newData = data.reduce((total, data) => {
+    const { language } = data;
+    if (language) {
+      if (total[language]) {
+        total[language] += 1;
+      } else {
+        total[language] = 1;
+      }
+    }
+
+    return total;
+  }, {});
+  return newData;
+};
+fetchKey();
+
+const dataObject = fetchKey();
+
+console.log(dataObject);
