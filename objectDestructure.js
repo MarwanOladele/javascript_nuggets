@@ -25,9 +25,9 @@ const printName = ({
   firstName: myName,
   lastName,
   city,
-  siblings: { name: onlySister },
+  siblings: { name },
 }) => {
-  console.log(myName, lastName, city, onlySister);
+  console.log(myName, lastName, city, name);
 };
 
 printName(bob);
