@@ -7,9 +7,9 @@ const bob = {
   },
 };
 
-const firstName = bob.firstName;
+// const firstName = bob.firstName;
 // const lastName = bob.lastName;
-const sister = bob.siblings.name;
+// const sister = bob.siblings.name;
 
 console.log(firstName, lastName, sister);
 
